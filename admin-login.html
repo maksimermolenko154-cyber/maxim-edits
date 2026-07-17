@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxim Edits — Вход в админку</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div style="max-width:400px; margin:100px auto; background:#181828; padding:30px; border-radius:20px; text-align:center; border:1px solid #25253a;">
+        <h1>🔐 Вход для автора</h1>
+        <div id="errorBlock" style="color:#ff4a4a; display:none; margin-bottom:10px;">Неверный пароль!</div>
+        <form onsubmit="checkAdminLogin(event)">
+            <input type="password" id="adminPassword" placeholder="Пароль администратора" required style="width:100%; padding:12px; margin-bottom:15px; background:#25253a; color:white; border:1px solid #25253a; border-radius:10px;">
+            <button type="submit" style="width:100%; padding:12px; background:#765cff; color:white; border:0; border-radius:10px; font-weight:bold;">Войти</button>
+        </form>
+    </div>
+    <script>
+        function checkAdminLogin(event) {
+            event.preventDefault();
+            let pass = document.getElementById("adminPassword").value.trim();
+            if (pass === "maxim2026") {
+                localStorage.setItem("isAdmin", "true");
+                window.location.href = "admin.html";
+            } else {
+                document.getElementById("errorBlock").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
