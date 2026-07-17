@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxim Edits — Портфолио</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ Maxim Edits</h1>
+            <p class="subtitle">Профессиональный монтаж видео, рилс, shortс и полноценных роликов</p>
+            <div class="schedule-box">
+                <span style="color: #b55cff; font-weight: bold;">⏰ Время работы:</span> Рабочие дни: с 12:00 до 18:00 | Выходные: с 12:00 до 15:00
+            </div>
+        </header>
+
+        <section id="portfolio">
+            <h2>🎬 Моё Портфолио</h2>
+            <div class="card" style="text-align: center;">
+                <p style="margin-bottom: 20px; color: #8b8ba3; line-height: 1.5;">
+                    Все свои самые свежие работы, сочные кейсы и примеры до/после я выкладываю в Telegram!
+                </p>
+                <a href="https://t.me/vxpm3" target="_blank" style="text-decoration: none;">
+                    <button class="tg-button" style="background: #24A1DE; color: white; padding: 15px; border: 0; border-radius: 12px; font-weight: bold; cursor: pointer;">
+                        ✈️ Открыть Портфолио в Telegram
+                    </button>
+                </a>
+            </div>
+        </section>
+
+        <section id="prices">
+            <h2>💰 Цены и Тарифы</h2>
+            <div class="card">
+                <div class="prices-grid">
+                    <div class="price-card">
+                        <h3>Basic</h3>
+                        <div id="display-p1" class="price-amount">Уточняйте</div>
+                    </div>
+                    <div class="price-card">
+                        <h3>Standard</h3>
+                        <div id="display-p2" class="price-amount">Уточняйте</div>
+                    </div>
+                    <div class="price-card">
+                        <h3>Premium</h3>
+                        <div id="display-p3" class="price-amount">Уточняйте</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="order">
+            <h2>📩 Оставить заявку</h2>
+            <div class="card">
+                <form id="orderForm">
+                    <input type="text" id="clientName" placeholder="Ваше имя" required>
+                    <input type="email" id="clientEmail" placeholder="Ваш Email">
+                    <input type="text" id="clientTg" placeholder="Ваш Telegram (например, @vxpm3)" required>
+                    
+                    <select id="clientPlan">
+                        <option value="Basic">Тариф — Basic</option>
+                        <option value="Standard" selected>Тариф — Standard</option>
+                        <option value="Premium">Тариф — Premium</option>
+                    </select>
+
+                    <textarea id="clientText" rows="4" placeholder="Опишите вашу задачу..."></textarea>
+                    
+                    <button type="submit">Отправить заказ</button>
+                </form>
+            </div>
+        </section>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="login.html" style="color: #8b8ba3; text-decoration: none; font-size: 0.9rem;">Вход для клиентов</a> | 
+            <a href="admin-login.html" style="color: #8b8ba3; text-decoration: none; font-size: 0.9rem;">Админ-панель</a>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
