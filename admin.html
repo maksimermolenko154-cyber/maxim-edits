@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxim Edits — Панель управления</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>⚙️ Админ-панель управления заказами</h1>
+        <section>
+            <h2>💰 Изменение цен на сайте</h2>
+            <div class="card">
+                <div class="price-inputs">
+                    <div>
+                        <label>Тариф Basic</label>
+                        <input type="text" id="price1" placeholder="Например, 500 руб">
+                    </div>
+                    <div>
+                        <label>Тариф Standard</label>
+                        <input type="text" id="price2" placeholder="Например, 1500 руб">
+                    </div>
+                    <div>
+                        <label>Тариф Premium</label>
+                        <input type="text" id="price3" placeholder="Например, 3500 руб">
+                    </div>
+                </div>
+                <button onclick="savePrices()">Обновить цены на сайте</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>📥 Поступившие заявки</h2>
+            <div class="card">
+                <div style="margin-bottom: 15px;">
+                    <button class="btn-danger" onclick="clearOrders()">Очистить все заказы</button>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Дата</th>
+                                <th>Клиент</th>
+                                <th>Контакты</th>
+                                <th>Тариф</th>
+                                <th>ТЗ / Описание</th>
+                                <th>Статус</th>
+                                <th>Действие</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+</html>
