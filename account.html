@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxim Edits — Личный кабинет</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>👤 Личный кабинет клиента</h1>
+        <p class="info">Здесь вы можете отслеживать статус вашего текущего заказа</p>
+        <div class="card" id="accountContent"></div>
+        <button onclick="logout()">Выйти из кабинета</button>
+    </div>
+    <script>
+        function loadClientOrder() {
+            let currentClient = localStorage.getItem("currentClientTg");
+            let contentDiv = document.getElementById("accountContent");
+            if (!currentClient) { window.location.href = "login.html"; return; }
+            let orders = JSON.parse(localStorage.getItem("orders")) || [];
+            let clientOrder = orders.reverse().find(o => o.telegram.toLowerCase() === currentClient.toLowerCase());
+
+            if (!clientOrder) {
+                contentDiv.innerHTML = `<p style="text-align: center; color: #8b8ba3; margin: 20px 0;">У вас пока нет активных заказов.</p>`;
+                return;
+            }
+            let statusClass = clientOrder.status === "Новый" ? "status-new" : "status-done";
+            contentDiv.innerHTML = `
+                <h3 style="margin-top: 0; color: #765cff;">Информация о заказе</h3>
+                <p><b>Имя:</b> ${clientOrder.name}</p>
+                <p><b>Тариф:</b> ${clientOrder.plan}</p>
+                <p><b>Дата:</b> ${clientOrder.date}</p>
+                <p><b>ТЗ:</b> ${clientOrder.text}</p>
+                <div style="margin-top:15px; background:#25253a; padding:10px; border-radius:8px;">
+                    <span>Статус: <b>${clientOrder.status}</b></span>
+                </div>`;
+        }
+        function logout() { localStorage.removeItem("currentClientTg"); window.location.href = "login.html"; }
+        window.onload = loadClientOrder;
+    </script>
+</body>
+</html>
